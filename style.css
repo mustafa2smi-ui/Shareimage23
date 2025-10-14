@@ -1,49 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 
-body {
-  font-family: 'Amiri', serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg);
-  color: var(--text);
-  transition: all 0.4s ease;
-}
-
 :root {
   --bg: #fff;
   --text: #111;
   --card: #f3f3f3;
+  --accent: #198754;
+}
+
+body {
+  font-family: 'Amiri', serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.4s ease;
 }
 
 body.dark {
   --bg: #121212;
   --text: #eee;
   --card: #1e1e1e;
+  --accent: #2ecc71;
 }
 
 header {
+  background: var(--accent);
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background: #198754;
-  color: #fff;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 22px;
 }
 
 #themeToggle {
-  background: transparent;
+  font-size: 20px;
+  background: none;
   border: none;
   color: white;
-  font-size: 22px;
   cursor: pointer;
 }
 
-/* Slider Section */
+/* Slider */
 .slider {
   overflow: hidden;
   margin: 15px 0;
@@ -53,54 +50,65 @@ header h1 {
   width: calc(300% + 30px);
   animation: slide 12s linear infinite;
 }
-.slide {
-  flex: 0 0 100%;
-  padding: 20px;
-  background: var(--card);
-  border-radius: 12px;
-  margin: 0 10px;
-  transition: 0.4s;
-}
-.slide h3 {
-  margin-top: 0;
-}
-.slide a {
-  color: #198754;
-  text-decoration: none;
-}
 @keyframes slide {
   0% {transform: translateX(0);}
   33% {transform: translateX(-100%);}
   66% {transform: translateX(-200%);}
   100% {transform: translateX(0);}
 }
+.slide {
+  flex: 0 0 100%;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 12px;
+  margin: 0 10px;
+}
 
 /* Q&A List */
 main {
   padding: 10px 15px;
 }
-.qa-list {
-  display: grid;
-  gap: 15px;
-}
 .qa-card {
   background: var(--card);
   border-radius: 12px;
   padding: 15px;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
 }
-.qa-card h3 {
-  margin: 0;
-}
-.qa-card a {
-  color: #198754;
-  font-weight: bold;
-  text-decoration: none;
+.qa-card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
+/* Single Q&A View */
+#singleView {
+  padding: 20px;
+  animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+.hidden {
+  display: none;
+}
+.action-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
 footer {
   text-align: center;
   padding: 10px;
-  font-size: 14px;
-  background: #198754;
-  color: white;
+  background: var(--accent);
+  color: #fff;
 }
