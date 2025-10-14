@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕌 DarulMasail – Islamic Q&A with References</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🕌 DarulMasail – Islamic Q&A with References</h1>
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Namaz Time Section -->
+    <section class="namaz-time">
+        <div class="container">
+            <h2>Prayer Times</h2>
+            <div class="namaz-times-container">
+                <div class="namaz-time-item">
+                    <span class="prayer-name">Fajr</span>
+                    <span class="prayer-time" id="fajr-time">Loading...</span>
+                </div>
+                <div class="namaz-time-item">
+                    <span class="prayer-name">Dhuhr</span>
+                    <span class="prayer-time" id="dhuhr-time">Loading...</span>
+                </div>
+                <div class="namaz-time-item">
+                    <span class="prayer-name">Asr</span>
+                    <span class="prayer-time" id="asr-time">Loading...</span>
+                </div>
+                <div class="namaz-time-item">
+                    <span class="prayer-name">Maghrib</span>
+                    <span class="prayer-time" id="maghrib-time">Loading...</span>
+                </div>
+                <div class="namaz-time-item">
+                    <span class="prayer-name">Isha</span>
+                    <span class="prayer-time" id="isha-time">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auto-Sliding Highlighted Questions -->
+    <section class="highlighted-questions">
+        <div class="container">
+            <h2>Featured Questions</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <div class="question-card">
+                            <h3>What is the ruling on listening to music in Islam?</h3>
+                            <p>An examination of Islamic texts regarding musical instruments and their permissibility.</p>
+                            <a href="pages/q1.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="question-card">
+                            <h3>How should a Muslim handle financial difficulties?</h3>
+                            <p>Islamic guidance on dealing with financial hardship and maintaining trust in Allah.</p>
+                            <a href="pages/q2.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="question-card">
+                            <h3>What are the conditions for a valid Islamic marriage?</h3>
+                            <p>Essential requirements and pillars for a marriage contract in Islam.</p>
+                            <a href="pages/q3.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-btn prev">❮</button>
+                    <button class="slider-btn next">❯</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Questions -->
+    <section class="recent-questions">
+        <div class="container">
+            <h2>Recent Questions</h2>
+            <div class="questions-grid">
+                <div class="question-card">
+                    <h3>What is the ruling on listening to music in Islam?</h3>
+                    <p>An examination of Islamic texts regarding musical instruments and their permissibility according to different schools of thought.</p>
+                    <a href="pages/q1.html" class="read-more">Read More →</a>
+                </div>
+                <div class="question-card">
+                    <h3>How should a Muslim handle financial difficulties?</h3>
+                    <p>Islamic guidance on dealing with financial hardship and maintaining trust in Allah during challenging times.</p>
+                    <a href="pages/q2.html" class="read-more">Read More →</a>
+                </div>
+                <div class="question-card">
+                    <h3>What are the conditions for a valid Islamic marriage?</h3>
+                    <p>Essential requirements and pillars for a marriage contract (Nikah) in Islam according to various madhahib.</p>
+                    <a href="pages/q3.html" class="read-more">Read More →</a>
+                </div>
+                <div class="question-card">
+                    <h3>Is it permissible to use credit cards with interest?</h3>
+                    <p>Analysis of modern financial instruments in light of Islamic prohibition of riba (interest).</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="question-card">
+                    <h3>What is the Islamic ruling on abortion?</h3>
+                    <p>Detailed fiqh perspectives on termination of pregnancy at different stages of fetal development.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="question-card">
+                    <h3>How to properly perform Tayammum?</h3>
+                    <p>Step-by-step guide to dry ablution when water is unavailable or its use is harmful.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DarulMasail - Islamic Q&A with References. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
