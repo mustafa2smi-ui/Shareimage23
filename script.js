@@ -23,6 +23,14 @@ const questions = [
     answer: "Jab maal nisaab ke barabar ya zyada ho aur ek saal guzre, tab zakat wajib hoti hai.",
     ref: "Fatawa Alamgiri, Vol. 2",
     scholar: "Mufti Khalid Ansari"
+  },
+  {
+    id: 2,
+    title: "Roze ke dauran toothpaste lagana jaiz hai?",
+    short: "Toothpaste agar munh ke andar chala jaye...",
+    answer: "Agar toothpaste ka koi hissa andar chala gaya to roza toot jata hai. Behtar hai miswak ya brush bina paste ke karein.",
+    ref: "Bahishti Zewar, Part 2",
+    scholar: "Mufti Anas Qasmi"
   }
 ];
 
