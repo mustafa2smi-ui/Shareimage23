@@ -153,3 +153,31 @@ footer {
 .answer-card.green { background:#064e3b; color:#fff; }
 .answer-card.blue { background:#1e3a8a; color:#fff; }
 .answer-card.sand { background:#f5deb3; color:#000; }
+.menu-toggle {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.hidden-menu {
+  position: fixed;
+  left: -240px;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #222;
+  color: white;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+.hidden-menu.show {
+  left: 0;
+}
+.hidden-menu a {
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
