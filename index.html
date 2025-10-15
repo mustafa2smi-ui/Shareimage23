@@ -8,11 +8,12 @@
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
+  <!--
   <header>
     <h1>🕌 DarulMasail</h1>
     <button id="themeToggle">🌙</button>
   </header>
-<!-- 🔹 Top Menu -->
+<!-- 🔹 Top Menu 
 <nav class="menu">
   <button onclick="filterCategory('all')">All</button>
   <button onclick="filterCategory('namaz')">Namaz</button>
@@ -20,6 +21,24 @@
   <button onclick="filterCategory('aurat')">Aurat</button>
   <button onclick="filterCategory('zakat')">Zakat</button>
   <button onclick="filterCategory('hajj')">Hajj</button>
+</nav>
+  -->
+  <header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <h1>🕌 DarulMasail</h1>
+  <button id="themeToggle">🌙</button>
+</header>
+
+<nav id="sideMenu" class="hidden-menu">
+  <a href="#">Home</a>
+  <a href="#">Namaz</a>
+  <a href="#">Dua</a>
+  <a href="#">Roza</a>
+  <a href="#">Zakat</a>
+  <a href="#">Hajj</a>
+  <a href="#">Masail (Q&A)</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
 </nav>
   <!-- 🔹 Top Namaz Time Bar -->
   <div id="namazTimes" class="namaz-times">
