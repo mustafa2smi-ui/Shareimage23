@@ -122,54 +122,55 @@ navigator.geolocation.getCurrentPosition(position => {
   fetchPrayerTimes(lat, lng);
 });
 */
-// 🕌 Salah Time Section
-document.addEventListener("DOMContentLoaded", () => {
-  // Default: Delhi
-  fetchPrayerTimes(28.6139, 77.2090);
-});
-
-async function fetchPrayerTimes(lat, lng) {
+// 🌙 Load Salah Times with Default Delhi + "Use My Location" option
+async function fetchPrayerTimes(lat, lng, cityName = "Delhi") {
   try {
     const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`);
     const data = await res.json();
     const t = data.data.timings;
+
+    // Beautiful list view
     const listHTML = `
-      <ul>
+      <h3>🕌 Salah Times - ${cityName}</h3>
+      <ul style="list-style:none;padding:0;margin:5px 0;">
         <li><b>Fajr:</b> ${t.Fajr}</li>
         <li><b>Dhuhr:</b> ${t.Dhuhr}</li>
         <li><b>Asr:</b> ${t.Asr}</li>
         <li><b>Maghrib:</b> ${t.Maghrib}</li>
         <li><b>Isha:</b> ${t.Isha}</li>
       </ul>
-      <button onclick="useMyLocation()">📍 Use My Location</button>
+      <button onclick="useMyLocation()" style="background:#198754;color:#fff;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">📍 Use My Location</button>
     `;
     document.getElementById('namazTimes').innerHTML = listHTML;
   } catch (e) {
-    document.getElementById('namazTimes').textContent = "Error fetching Salah time.";
+    document.getElementById('namazTimes').textContent = "Error fetching Salah times.";
   }
 }
 
+// 📍 Detect user location or fallback to Delhi
 function useMyLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      (pos) => fetchPrayerTimes(pos.coords.latitude, pos.coords.longitude),
-      () => alert("Location permission denied! Using Delhi by default.")
+      (pos) => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        fetchPrayerTimes(lat, lng, "Your Location");
+      },
+      () => {
+        alert("Location permission denied! Using Delhi as default.");
+        fetchPrayerTimes(28.6139, 77.2090, "Delhi");
+      }
     );
   } else {
-    alert("Geolocation not supported.");
+    alert("Geolocation not supported on this device.");
+    fetchPrayerTimes(28.6139, 77.2090, "Delhi");
   }
 }
-async function fetchPrayerTimes(lat, lng){
-  try{
-    const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`);
-    const data = await res.json();
-    const t = data.data.timings;
-    document.getElementById('namazTimes').innerHTML =
-      `Fajr: ${t.Fajr} | Dhuhr: ${t.Dhuhr} | Asr: ${t.Asr} | Maghrib: ${t.Maghrib} | Isha: ${t.Isha}`;
-  }catch(e){
-    document.getElementById('namazTimes').textContent = "Location not allowed / Try again.";
-  }
-}
+
+// 🔹 On Page Load → Default Delhi
+window.addEventListener("load", () => {
+  fetchPrayerTimes(28.6139, 77.2090, "Delhi");
+});
 function filterCategory(cat) {
   document.querySelectorAll('.qa-card').forEach(c=>{
     c.style.display = (cat==='all' || c.dataset.cat===cat) ? 'block' : 'none';
