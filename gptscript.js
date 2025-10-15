@@ -114,3 +114,32 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
     link.click();
   }
 });
+// 🕌 Get user's location and fetch Namaz times
+navigator.geolocation.getCurrentPosition(position => {
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+  fetchPrayerTimes(lat, lng);
+});
+
+async function fetchPrayerTimes(lat, lng){
+  try{
+    const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`);
+    const data = await res.json();
+    const t = data.data.timings;
+    document.getElementById('namazTimes').innerHTML =
+      `Fajr: ${t.Fajr} | Dhuhr: ${t.Dhuhr} | Asr: ${t.Asr} | Maghrib: ${t.Maghrib} | Isha: ${t.Isha}`;
+  }catch(e){
+    document.getElementById('namazTimes').textContent = "Location not allowed / Try again.";
+  }
+}
+function filterCategory(cat) {
+  document.querySelectorAll('.qa-card').forEach(c=>{
+    c.style.display = (cat==='all' || c.dataset.cat===cat) ? 'block' : 'none';
+  });
+}
+let currentTheme = 'dark';
+function setTheme(theme){
+  currentTheme = theme;
+  const area = document.getElementById('shareArea');
+  if(area) area.className = `answer-card ${theme}`;
+}
