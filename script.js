@@ -184,6 +184,21 @@ function setTheme(theme){
     area.className = `qa-card answer-card ${theme}`;
   }
 }
+/*
 function toggleMenu() {
   document.getElementById('sideMenu').classList.toggle('show');
 }
+*/
+function toggleMenu() {
+  const menu = document.getElementById('sideMenu');
+  menu.classList.toggle('show');
+}
+
+// Hide menu on outside click
+window.addEventListener('click', function(e) {
+  const menu = document.getElementById('sideMenu');
+  const btn = document.getElementById('menuBtn');
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('show');
+  }
+});
