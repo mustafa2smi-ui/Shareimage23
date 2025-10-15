@@ -181,3 +181,11 @@ footer {
   text-decoration: none;
   border-bottom: 1px solid #333;
 }
+closeMenu {
+  background: none;
+  border: none;
+  color: #f00;
+  font-size: 22px;
+  float: right;
+  cursor: pointer;
+}
