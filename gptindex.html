@@ -12,7 +12,19 @@
     <h1>🕌 DarulMasail</h1>
     <button id="themeToggle">🌙</button>
   </header>
-
+<!-- 🔹 Top Menu -->
+<nav class="menu">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('namaz')">Namaz</button>
+  <button onclick="filterCategory('roza')">Roza</button>
+  <button onclick="filterCategory('aurat')">Aurat</button>
+  <button onclick="filterCategory('zakat')">Zakat</button>
+  <button onclick="filterCategory('hajj')">Hajj</button>
+</nav>
+  <!-- 🔹 Top Namaz Time Bar -->
+  <div id="namazTimes" class="namaz-times">
+    🕋 Loading Namaz Times...
+  </div>
   <!-- 🔹 Auto Slider -->
   <section class="slider">
     <div class="slider-track" id="highlighted"></div>
@@ -28,6 +40,13 @@
       <button id="shareBtn">📤 Share</button>
       <button id="backBtn">← Back</button>
     </div>
+    <!-- 🔹 Theme Selector -->
+<div class="theme-selector">
+  <button onclick="setTheme('dark')">Dark</button>
+  <button onclick="setTheme('green')">Green</button>
+  <button onclick="setTheme('blue')">Blue</button>
+  <button onclick="setTheme('sand')">Sand</button>
+</div>
   </section>
 
   <footer>
