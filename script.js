@@ -193,7 +193,10 @@ function toggleMenu() {
   const menu = document.getElementById('sideMenu');
   menu.classList.toggle('show');
 }
-
+// 🟥 Close button action
+document.getElementById('closeMenu').addEventListener('click', () => {
+  document.getElementById('sideMenu').classList.remove('show');
+});
 // Hide menu on outside click
 window.addEventListener('click', function(e) {
   const menu = document.getElementById('sideMenu');
