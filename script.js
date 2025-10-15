@@ -175,9 +175,15 @@ function filterCategory(cat) {
     c.style.display = (cat==='all' || c.dataset.cat===cat) ? 'block' : 'none';
   });
 }
+
 let currentTheme = 'dark';
 function setTheme(theme){
   currentTheme = theme;
   const area = document.getElementById('shareArea');
-  if(area) area.className = `answer-card ${theme}`;
+  if(area) {
+    area.className = `qa-card answer-card ${theme}`;
+  }
+}
+function toggleMenu() {
+  document.getElementById('sideMenu').classList.toggle('show');
 }
