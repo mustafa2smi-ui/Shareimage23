@@ -129,21 +129,51 @@ async function fetchPrayerTimes(lat, lng, cityName = "Delhi") {
     const data = await res.json();
     const t = data.data.timings;
 
-    // Beautiful list view
-    const listHTML = `
+    const prayerNames = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+    let listHTML = `
       <h3>🕌 Salah Times - ${cityName}</h3>
       <ul style="list-style:none;padding:0;margin:5px 0;">
-        <li><b>Fajr:</b> ${t.Fajr}</li>
-        <li><b>Dhuhr:</b> ${t.Dhuhr}</li>
-        <li><b>Asr:</b> ${t.Asr}</li>
-        <li><b>Maghrib:</b> ${t.Maghrib}</li>
-        <li><b>Isha:</b> ${t.Isha}</li>
-      </ul>
-      <button onclick="useMyLocation()" style="background:#198754;color:#fff;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">📍 Use My Location</button>
     `;
-    document.getElementById('namazTimes').innerHTML = listHTML;
+
+    prayerNames.forEach(name => {
+      const time12 = convertTo12Hour(t[name]);
+      listHTML += `<li><b>${name}:</b> ${time12}</li>`;
+    });
+
+    listHTML += `
+      </ul>
+      <button onclick="useMyLocation()" 
+        style="background:#198754;color:#fff;border:none;padding:6px 12px;
+        border-radius:6px;cursor:pointer;">📍 Use My Location</button>
+    `;
+
+    document.getElementById("namazTimes").innerHTML = listHTML;
+
+    // Show human readable address
+    showAddress(lat, lng);
   } catch (e) {
-    document.getElementById('namazTimes').textContent = "Error fetching Salah times.";
+    console.error(e);
+    document.getElementById("namazTimes").textContent = "Error fetching Salah times.";
+  }
+}
+
+// 🧭 Convert 24-hour → 12-hour format
+function convertTo12Hour(time24) {
+  let [hours, minutes] = time24.split(":");
+  hours = parseInt(hours);
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12;
+  return `${hours}:${minutes} ${ampm}`;
+}
+
+// 🗺 Show human readable location (OpenStreetMap)
+async function showAddress(lat, lng) {
+  try {
+    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+    const data = await res.json();
+    document.getElementById("location").innerText = `📍 ${data.display_name}`;
+  } catch {
+    document.getElementById("location").innerText = `📍 Latitude: ${lat.toFixed(2)}, Longitude: ${lng.toFixed(2)}`;
   }
 }
 
@@ -190,6 +220,7 @@ function toggleMenu() {
   document.getElementById('sideMenu').classList.toggle('show');
 }
 */
+
 function toggleMenu() {
   const menu = document.getElementById('sideMenu');
   menu.classList.toggle('show');
