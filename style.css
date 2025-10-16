@@ -215,3 +215,33 @@ closeMenu {
   font-size: 13px;
   color: #666;
 }
+/* 🌈 Q&A Area Theme Backgrounds */
+.qa-area {
+  padding: 15px;
+  border-radius: 12px;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* 🔹 Dark Theme */
+.qa-area.dark {
+  background: #0f172a;
+  color: #f9fafb;
+}
+
+/* 🔹 Green Theme */
+.qa-area.green {
+  background: #064e3b;
+  color: #ecfdf5;
+}
+
+/* 🔹 Blue Theme */
+.qa-area.blue {
+  background: #1e3a8a;
+  color: #dbeafe;
+}
+
+/* 🔹 Sand Theme */
+.qa-area.sand {
+  background: #f5deb3;
+  color: #3b2f2f;
+}
