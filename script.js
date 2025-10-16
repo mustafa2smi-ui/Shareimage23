@@ -206,7 +206,7 @@ function filterCategory(cat) {
     c.style.display = (cat==='all' || c.dataset.cat===cat) ? 'block' : 'none';
   });
 }
-
+/*
 let currentTheme = 'dark';
 function setTheme(theme){
   currentTheme = theme;
@@ -214,6 +214,20 @@ function setTheme(theme){
   if(area) {
     area.className = `qa-card answer-card ${theme}`;
   }
+}
+*/
+let currentTheme = 'dark';
+
+function setTheme(theme) {
+  currentTheme = theme;
+
+  // 🎯 सिर्फ पूरे Q&A area का background बदले
+  const qaArea = document.getElementById('qaArea');
+  if (qaArea) qaArea.className = `qa-area ${theme}`;
+
+  // 🎯 और अंदर वाले card का color भी बदले
+  const qaCard = document.getElementById('qaCard');
+  if (qaCard) qaCard.className = `qa-card answer-card ${theme}`;
 }
 /*
 function toggleMenu() {
