@@ -210,7 +210,7 @@ function filterCategory(cat) {
 let currentTheme = 'dark';
 function setTheme(theme){
   currentTheme = theme;
-  const area = document.getElementById('shareArea');
+  const area = document.getElementById('qaCard'); // 🔹 पहले 'shareArea' था
   if(area) {
     area.className = `qa-card answer-card ${theme}`;
   }
