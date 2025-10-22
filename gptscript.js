@@ -171,9 +171,9 @@ async function showAddress(lat, lng) {
   try {
     const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
     const data = await res.json();
-    document.getElementById("location").innerText = `📍 ${data.display_name}`;
+    document.getElementById("locationText").innerText = `📍 ${data.display_name}`;
   } catch {
-    document.getElementById("location").innerText = `📍 Latitude: ${lat.toFixed(2)}, Longitude: ${lng.toFixed(2)}`;
+    document.getElementById("locationText").innerText = `📍 Latitude: ${lat.toFixed(2)}, Longitude: ${lng.toFixed(2)}`;
   }
 }
 
